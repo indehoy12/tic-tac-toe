@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #e0e7ff, #a7b6ff);
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  min-width: 320px;
+  transition: transform 0.3s ease;
+}
+
+.game:hover {
+  transform: scale(1.05);
+}
+
+.status {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #4a4a4a;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 12px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #333;
+  background-color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.square:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
+.square:active {
+  background-color: #a7b6ff;
+  transform: scale(0.95);
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    grid-gap: 10px;
+  }
+
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+
+  .status {
+    font-size: 24px;
+  }
+}
+
+.game-info button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #a7b6ff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.game-info button:hover {
+  background-color: #4a6ed8;
+}
+
+.game-info button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(106, 140, 255, 0.5);
+}
+
+.status.winner {
+  animation: winnerAnim 1.5s ease-in-out infinite;
+}
